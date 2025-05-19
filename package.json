@@ -1,0 +1,24 @@
+{
+  "name": "fullstackopenblog",
+  "version": "1.0.0",
+  "description": "full stack open blog list project",
+  "homepage": "https://github.com/justice1k/fullstackopenblog#readme",
+  "bugs": {
+    "url": "https://github.com/justice1k/fullstackopenblog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justice1k/fullstackopenblog.git"
+  },
+  "license": "ISC",
+  "author": "jusice1k",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.15.0"
+  }
+}
