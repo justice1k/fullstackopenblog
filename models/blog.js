@@ -19,3 +19,5 @@ blogSchema.set('toJSON',{
 })
 
 module.exports = mongoose.model('Blog', blogSchema);
+
+// TODO: Create model for testing

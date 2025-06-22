@@ -21,8 +21,25 @@ const favoriteBlog = (blogs) => {
   }
   return blogs[favIndex]
 }
+
+const initialBlogs = [
+    {
+        "title": "My First Blog Post",
+        "author": "John Doe",
+        "url": "https://example.com/my-first-blog-post",
+        "likes": 42,
+    },
+    {
+        "title": "My Second Blog Post",
+        "author": "Janny Doe",
+        "url": "https://example.com/my-second-blog-post",
+        "likes": 11,
+    },
+]
+
 module.exports = {
   dummy,
   totalLikes,
   favoriteBlog,
+  initialBlogs,
 };
