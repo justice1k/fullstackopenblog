@@ -47,14 +47,20 @@ describe('adding a new blog', () => {
 
     const blogsAtEnd = await listHelper.blogsInDB()
     const blogs = blogsAtEnd.map(blog => blog.title)
-    console.log(blogs)
     assert.strictEqual(blogsAtEnd.length, listHelper.initialBlogs.length + 1)
     assert(blogs.includes('My 5th Blog Post'))
   })
 
-  // test('number of blogs increased by one', async () => {
+  describe('deleting a blog',() => {
+    test('appropriate status code', async () => {
+      await api.delete('/api/blogs/6859ae25285f8121bfe9bf39')
+      .expect(204)
 
-  // })
+      const blogsAtEnd = await listHelper.blogsInDB()
+      assert.deepEqual(blogsAtEnd.length, 2)
+    })
+  })
+
 
 })
 after(async () => {
