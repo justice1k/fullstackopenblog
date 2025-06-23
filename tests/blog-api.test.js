@@ -72,7 +72,7 @@ describe('adding a new blog', () => {
         }
         await api.put(`/api/blogs/${firstBlog.id}`)
         .send(updateData)
-        .expect(201)
+        .expect(200)
 
         const result = await api.get(`/api/blogs/${firstBlog.id}`)
 
