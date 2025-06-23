@@ -1,4 +1,4 @@
-const {test, after, beforeEach} = require('node:test')
+const {test, after, beforeEach, describe} = require('node:test')
 const assert = require('node:assert')
 const mongoose = require('mongoose')
 const supertest = require('supertest')
@@ -38,6 +38,25 @@ test('unique identifier is id not _id', async () => {
   assert.strictEqual(res.body[0].hasOwnProperty('id'), true)
 })
 
+
+describe('adding a new blog', () => {
+  test('new blog successfully added', async () => {
+    await api.post('/api/blogs')
+    .send(listHelper.oneBlog)
+    .expect(201)
+
+    const blogsAtEnd = await listHelper.blogsInDB()
+    const blogs = blogsAtEnd.map(blog => blog.title)
+    console.log(blogs)
+    assert.strictEqual(blogsAtEnd.length, listHelper.initialBlogs.length + 1)
+    assert(blogs.includes('My 5th Blog Post'))
+  })
+
+  // test('number of blogs increased by one', async () => {
+
+  // })
+
+})
 after(async () => {
   mongoose.connection.close()
 })
