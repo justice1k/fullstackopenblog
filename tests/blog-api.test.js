@@ -61,6 +61,25 @@ describe('adding a new blog', () => {
     })
   })
 
+  describe('updating a blog', () => {
+    test('first blog\'s likes is equal to 6000', async () => {
+        const firstBlog = await listHelper.firstBlog()
+        const updateData = {
+          title: firstBlog.title,
+          author: firstBlog.author,
+          url: firstBlog.url,
+          likes: 6000,
+        }
+        await api.put(`/api/blogs/${firstBlog.id}`)
+        .send(updateData)
+        .expect(201)
+
+        const result = await api.get(`/api/blogs/${firstBlog.id}`)
+
+        assert.strictEqual(result.body.likes, 6000)
+    } )
+  })
+
 
 })
 after(async () => {
