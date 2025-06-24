@@ -49,7 +49,7 @@ blogRouter.put('/:id', async (request, response) => {
         updatedBlog.likes = newBlog.likes
 
         const result = await updatedBlog.save()
-        response.status(20).json(result)
+        response.status(200).json(result)
     }else{
         response.status(404).end()
     }

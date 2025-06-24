@@ -29,8 +29,8 @@ const blogsInDB = async () => {
 }
 
 const firstBlog = async () => {
-  const blogs = await blogsInDB();
-  return blogs[0];
+  const blogs = await blogsInDB()
+  return blogs[0]
 }
 module.exports = {
   initialBlogs,
