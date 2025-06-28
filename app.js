@@ -5,6 +5,7 @@ const config = require('./utils/config')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
 const blogRouter = require('./controllers/blogs')
+const userRouter = require('./controllers/users')
 require('dotenv').config()
 
 const app = express()
@@ -19,6 +20,7 @@ mongoose
 
 app.use(middleware.requestLogger)
 app.use('/api/blogs', blogRouter)
+app.use('/api/users', userRouter)
 
 
 app.use(middleware.errorHandler)
