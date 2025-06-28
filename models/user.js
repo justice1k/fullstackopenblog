@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const userSchema = new mongoose.Schema({
     username: String,
     name: String,
-    passwordHash: String
+    passwordHash: String,
 })
 
 userSchema.set('toJSON', {
@@ -11,7 +11,7 @@ userSchema.set('toJSON', {
         returnedObject.id = document._id
         delete returnedObject._id
         delete returnedObject.__v
-        delete passwordHash
+        delete returnedObject.passwordHash
     }
 })
 
