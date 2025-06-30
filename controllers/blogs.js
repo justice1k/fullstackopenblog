@@ -81,4 +81,5 @@ blogRouter.put('/:id', async (request, response) => {
 
 })
 
+// TODO: Add authentication to remaining endpoints
 module.exports = blogRouter;
